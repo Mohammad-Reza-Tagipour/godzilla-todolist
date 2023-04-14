@@ -107,7 +107,7 @@ const Home = ({}) => {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/members")
+      .get("https://gozilla-server.onrender.com/api/members")
       .then((res) => {
         dispatch({ type: "SET_MEMBERS", payload: res.data });
       })
@@ -143,7 +143,9 @@ const Home = ({}) => {
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const response = await axios.get("http://localhost:3000/api/members");
+      const response = await axios.get(
+        "https://gozilla-server.onrender.com/api/members"
+      );
       setMembers(response.data);
       console.log(response.data);
     };
@@ -164,7 +166,7 @@ const Home = ({}) => {
       language: state.language,
     };
     axios
-      .post("http://localhost:3000/api/members", newMember)
+      .post("https://gozilla-server.onrender.com/api/members", newMember)
       .then((res) => {
         dispatch({ type: "ADD_MEMBER", payload: res.data });
         setName("");

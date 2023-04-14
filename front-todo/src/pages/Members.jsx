@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./members.css";
 import TaskList from "../components/MembersTable/TaskList";
-const url = "http://localhost:3000";
+const url = "https://gozilla-server.onrender.com";
 
 const Members = () => {
   const [tasks, setTasks] = useState([]);
@@ -16,7 +16,7 @@ const Members = () => {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await axios.get("http://localhost:3000/api/tasks");
+      const response = await axios.get(`${url}url/api/tasks`);
       setShowTasks(response.data);
       console.log(response.data);
     };
