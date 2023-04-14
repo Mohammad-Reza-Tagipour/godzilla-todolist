@@ -8,7 +8,9 @@ const History = () => {
   const [showTasks, setShowTasks] = useState([]);
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await axios.get("http://localhost:3000/api/tasks");
+      const response = await axios.get(
+        "https://gozilla-server.onrender.com/api/tasks"
+      );
       setShowTasks(response.data);
       // console.log(response.data);
     };
