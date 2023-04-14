@@ -13,10 +13,7 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  completed: {
-    type: Boolean,
-    required: true,
-  },
+  completed: { type: Boolean, required: true, default: false },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });

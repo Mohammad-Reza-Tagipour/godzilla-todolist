@@ -130,42 +130,118 @@ app.get("/api/tasks", async (req, res) => {
 // Task.findByIdAndUpdate(id, { completed }, { new: true }).then((task) => {
 //   res.json(task);
 
+//
+// app.patch("/api/tasks/:id/", async (req, res) => {
+//   const { id } = req.params;
+//   const { completed } = req.body;
+
+//   try {
+//     const task = await Task.findById(id);
+//     task.completed = true;
+
+//     if (completed) {
+//       task.history.push({
+//         assignee: task.assignee,
+//         completedAt: Date.now(),
+//       });
+//     }
+
+//     await task.save();
+//     res.json(task);
+//   } catch (err) {
+//     console.error("Error updating task: ", err);
+//     res.status(500).json(`Server Error: ${err}`);
+//   }
+// });
+
+// Update task completion status
+// app.patch("/api/tasks/:id/completed", async (req, res) => {
+//   const id = req.params.id;
+//   const completed = req.body.completed;
+
+//   // Validate and sanitize ID and completed status
+//   if (!id) return res.status(400).json({ message: "Task ID is required" });
+//   if (typeof completed !== "boolean") {
+//     return res
+//       .status(400)
+//       .json({ message: "Completed status must be a boolean" });
+//   }
+
+//   try {
+//     const task = await Task.findByIdAndUpdate(
+//       id,
+//       { completed: completed },
+//       { new: true }
+//     );
+//     if (!task) {
+//       return res.status(404).json({ message: "Task not found" });
+//     }
+//     res.json(task);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
+
 app.patch("/api/tasks/:id/completed", async (req, res) => {
-  const { id } = req.params;
-  const { completed } = req.body;
+  const taskId = req.params.id;
+  const completed = req.body.completed;
+
+  // Validate and sanitize task ID and completed status
+  if (!taskId) return res.status(400).json({ message: "Task ID is required" });
+  if (typeof completed !== "boolean") {
+    return res
+      .status(400)
+      .json({ message: "Completed status must be a boolean" });
+  }
 
   try {
-    const task = await Task.findById(id);
-    task.completed = completed;
-
-    if (completed) {
-      task.history.push({
-        assignee: task.assignee,
-        completedAt: Date.now(),
-      });
+    const task = await Task.findOneAndUpdate(
+      { _id: taskId },
+      { completed: completed, updatedAt: Date.now() },
+      { new: true }
+    );
+    if (!task) {
+      return res.status(404).json({ message: "Task not found" });
     }
-
-    await task.save();
     res.json(task);
-  } catch (err) {
-    console.error("Error updating task: ", err);
-    res.status(500).json(`Server Error: ${err}`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
-app.get("/api/tasks/:id/history", async (req, res) => {
-  try {
-    const history = await Task.find(
-      { completed: true },
-      { taskName: 1, assignee: 1, history: 1 }
-    ).lean();
+// Define a route for updating the completed status of a task
+// app.patch("/api/tasks/:id/completed", async (req, res) => {
+//   const id = req.params.id;
+//   const { completed } = req.body;
+//   try {
+//     // Update the completed status of the task in the database
+//     const updatedTask = await Task.findByIdAndUpdate(
+//       id,
+//       { completed },
+//       { new: true }
+//     );
+//     res.status(200).json(updatedTask);
+//   } catch (error) {
+//     console.error("Error updating task: ", error.message);
+//     res.status(500).json(`Server Error: ${error.message}`);
+//   }
+// });
 
-    res.json(history);
-  } catch (err) {
-    console.error("Error retrieving task history: ", err);
-    res.status(500).json(`Server Error: ${err}`);
-  }
-});
+// app.get("/api/tasks/:id/history", async (req, res) => {
+//   try {
+//     const history = await Task.find(
+//       { completed: true },
+//       { taskName: 1, assignee: 1, history: 1 }
+//     ).lean();
+
+//     res.json(history);
+//   } catch (err) {
+//     console.error("Error retrieving task history: ", err);
+//     res.status(500).json(`Server Error: ${err}`);
+//   }
+// });
 // Add error handling
 app.use((err, req, res, next) => {
   res.status(500).json(`Server error: ${err}`);

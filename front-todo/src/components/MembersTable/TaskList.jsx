@@ -132,25 +132,87 @@ function TaskList({ members, name }) {
       .catch((err) => console.error(err));
   };
 
-  const toggleComplete = (id, completed) => {
-    fetch(`${url}/api/tasks/${id}/completed`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ completed: !completed }),
-    })
-      .then((res) => res.json())
-      .then((data) =>
-        setTasks((prev) =>
-          prev.map((task) =>
-            task._id === data._id
-              ? { ...task, completed: data.completed }
-              : task
-          )
+  // const toggleComplete = async (id, completed) => {
+  //   fetch(`${url}/api/tasks/${id}/completed`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ completed: !completed }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) =>
+  //       setTasks((prev) =>
+  //         prev.map((task) =>
+  //           task._id === data._id
+  //             ? { ...task, completed: data.completed }
+  //             : task
+  //         )
+  //       )
+  //     )
+  //     .catch((err) => console.log(err));
+  // };
+  // const toggleComplete = async (id, completed) => {
+  //   try {
+  //     const response = await fetch(`${url}/api/tasks/${id}/completed`, {
+  //       method: "PATCH",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ completed: !completed }),
+  //     });
+  //     const data = await response.json();
+  //     setTasks((prev) =>
+  //       prev.map((task) =>
+  //         task._id === data._id
+  //           ? {
+  //               ...task,
+  //               completed: completed,
+  //             }
+  //           : task
+  //       )
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // const toggleComplete = async (id, completed) => {
+  //   try {
+  //     const response = await fetch(`${url}/api/tasks/${id}/completed`, {
+  //       method: "PATCH",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ completed: !completed }),
+  //     });
+  //     const data = await response.json();
+  //     setTasks((prev) =>
+  //       prev.map((task) =>
+  //         task._id === data._id ? { ...task, completed: data.completed } : task
+  //       )
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  const toggleComplete = async (id, completed) => {
+    try {
+      const response = await fetch(`${url}/api/tasks/${id}/completed`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ completed: !completed }),
+      });
+      const data = await response.json();
+      setTasks((prev) =>
+        prev.map((task) =>
+          task._id === data._id ? { ...task, completed: data.completed } : task
         )
-      )
-      .catch((err) => console.log(err));
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const editTask = (id) => {

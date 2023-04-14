@@ -10,7 +10,7 @@ import Home from "./pages/Home";
 import History from "./pages/History";
 // import List from "./pages/list/List";
 // import Hotel from "./pages/hotel/Hotel";
-
+const url = "https://gozilla-front.onrender.com";
 function App() {
   return (
     <BrowserRouter>
