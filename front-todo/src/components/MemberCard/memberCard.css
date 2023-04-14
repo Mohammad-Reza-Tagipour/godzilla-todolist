@@ -13,6 +13,7 @@
   flex: 1;
   overflow: auto;
   flex: 1 0 300px;
+  z-index: -20;
 }
 
 .user-card img {

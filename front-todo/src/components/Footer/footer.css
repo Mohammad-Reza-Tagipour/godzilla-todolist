@@ -7,8 +7,9 @@
   left: 0;
   width: 100%;
   z-index: -1;
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  z-index: 1;
 }
 
 .footer .container {
