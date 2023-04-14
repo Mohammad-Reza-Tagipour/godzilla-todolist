@@ -1,0 +1,155 @@
+/* *********** */
+.tasklist {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tasklist h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.tasklist form {
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.tasklist .form-group {
+  margin-bottom: 20px;
+}
+
+.tasklist label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.tasklist input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 1.2rem;
+}
+
+.tasklist button[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.tasklist button[type="submit"]:hover {
+  background-color: #388e3c;
+}
+
+.tasklist .error {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+table {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+thead {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+th {
+  padding: 10px;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+.tasklist button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.tasklist button:hover {
+  background-color: #3e8e41;
+}
+
+.tasklist button:active {
+  background-color: #3e8e41;
+  transform: translateY(1px);
+}
+.task-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+.task-modal .modal-form {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 500px; /* set a max width */
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  color: #333;
+}
+.modal-form .form-group input {
+  width: 100%;
+  max-width: 456px; /* set a max width */
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.complete-btn,
+.edit-btn,
+.delete-btn {
+  margin: 5px;
+}
