@@ -6,7 +6,7 @@ import AddMember from "../AddMember/AddMember";
 import TaskHistory from "../TaskChanges/TaskChanges";
 import TaskChanges from "../TaskChanges/TaskChanges";
 
-const url = "http://localhost:3000";
+const url = "https://gozilla-server.onrender.com";
 
 function TaskList({ members, name }) {
   const [tasks, setTasks] = useState([]);
@@ -14,7 +14,7 @@ function TaskList({ members, name }) {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await axios.get("http://localhost:3000/api/tasks");
+      const response = await axios.get(`${url}/api/tasks`);
       setShowTasks(response.data);
       // console.log(response.data);
     };
