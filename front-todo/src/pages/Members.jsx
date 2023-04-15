@@ -16,7 +16,7 @@ const Members = () => {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await axios.get(`${url}url/api/tasks`);
+      const response = await axios.get(`${url}/api/tasks`);
       setShowTasks(response.data);
       console.log(response.data);
     };
