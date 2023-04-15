@@ -404,6 +404,9 @@ function TaskList({ members, name }) {
             <button type="submit">
               {newTask.editing ? "Update" : "Create"}
             </button>
+            <div className="modal-close" onClick={() => setShowModal(false)}>
+              Close
+            </div>
           </form>
         </div>
       )}

@@ -170,7 +170,7 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-form {
+/* form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
@@ -178,7 +178,7 @@ form {
   column-gap: 32px;
   width: 100%;
   /* padding: 10px; */
-}
+/* } */
 
 label {
   font-weight: bold;
