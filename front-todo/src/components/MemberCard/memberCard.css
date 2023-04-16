@@ -13,7 +13,7 @@
   flex: 1;
   overflow: auto;
   flex: 1 0 300px;
-  z-index: -20;
+  z-index: 2;
 }
 
 .user-card img {
@@ -133,4 +133,9 @@
 .task-count.golden {
   background-color: gold;
   color: white;
+}
+.image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
 }

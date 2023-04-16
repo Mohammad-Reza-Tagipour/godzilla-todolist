@@ -19,7 +19,7 @@ const MemberCard = ({
     <div className="member-card-container">
       <div className="user-card">
         {/* <TaskList name={name} /> */}
-        <img src={image} alt="Profile photo" />
+        <img className="image" src={image} alt="Profile photo" />
         <h2>{name}</h2>
         <p>Skills: {skills}</p>
         <p>Age: {age}</p>
