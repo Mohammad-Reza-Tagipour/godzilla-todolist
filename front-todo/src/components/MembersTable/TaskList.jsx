@@ -299,16 +299,26 @@ function TaskList({ allMembers = [], members, name }) {
       {/* {allMembers.map((mem) => {
         // return <img src={mem.image[1]} className="member-image" />;
       })} */}
-      <ul className="image-container">
+      {/* <ul className="image-container">
         {allMembers.map((mem, index) => (
           <li key={mem._id}>
             <img
               src={mem.image}
               // alt={mem.name}
-              className="member-image"
+       
               style={{ zIndex: index }}
             />
-            {/* Add more member properties as needed */}
+    
+          </li>
+        ))}
+      </ul> */}
+      <ul className="image-container">
+        {allMembers.map((mem) => (
+          <li key={mem.id}>
+            <h3>{mem.name}</h3>
+            {mem.image && (
+              <img className="member-image" src={mem.image} alt={mem.name} />
+            )}
           </li>
         ))}
       </ul>

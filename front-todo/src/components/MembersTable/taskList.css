@@ -167,7 +167,13 @@ td {
   position: absolute;
   top: 0;
   right: 0;
-  max-width: 500px;
+  max-width: 600px;
+  /* width: 600px; */
+  margin-top: 40px;
+}
+.image-container h3 {
+  font-size: 14px;
+  margin: 0;
 }
 .member-image {
   width: 50px;
@@ -175,7 +181,7 @@ td {
   object-fit: cover;
   border-radius: 10px;
   /* position: absolute; */
-  margin: 10px;
+  margin-left: 4px;
 }
 li {
   list-style: none;
