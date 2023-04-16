@@ -430,7 +430,10 @@ const Home = ({}) => {
             </div>
           )}
           <div className="members-list">
-            <TaskList members={members.map((member) => member.name)} />
+            <TaskList
+              members={members.map((member) => member.name)}
+              allMembers={members}
+            />
 
             {/* <TaskList members={state.member} /> */}
           </div>

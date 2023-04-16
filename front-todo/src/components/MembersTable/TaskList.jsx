@@ -9,7 +9,8 @@ import TaskChanges from "../TaskChanges/TaskChanges";
 
 const url = "https://gozilla-server.onrender.com";
 
-function TaskList({ members, name }) {
+function TaskList({ allMembers = [], members, name }) {
+  console.log(allMembers);
   const [tasks, setTasks] = useState([]);
   const [showTasks, setShowTasks] = useState([]);
 
@@ -295,6 +296,23 @@ function TaskList({ members, name }) {
 
   return (
     <div className="tasklist">
+      {/* {allMembers.map((mem) => {
+        // return <img src={mem.image[1]} className="member-image" />;
+      })} */}
+      <ul className="image-container">
+        {allMembers.map((mem, index) => (
+          <li key={mem._id}>
+            <img
+              src={mem.image}
+              // alt={mem.name}
+              className="member-image"
+              style={{ zIndex: index }}
+            />
+            {/* Add more member properties as needed */}
+          </li>
+        ))}
+      </ul>
+
       <h1>Task List</h1>
       <p>{tasks.length} tasks</p>
       <button onClick={() => setShowModal(true)}>Add New Task</button>
