@@ -170,6 +170,8 @@ td {
   max-width: 600px;
   /* width: 600px; */
   margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .image-container h3 {
   font-size: 14px;
